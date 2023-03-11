@@ -6,6 +6,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+
 var home = require("./routes/home");
 var data = require("./routes/404");
 var dashboardRouter = require("./routes/dashboard");
@@ -44,10 +45,16 @@ app.use("/signout", logoutRouter);
 app.use("/signin", loginRouter);
 app.use("/news", newsRouter);
 
+//var listener = app.listen(8080, function () {
+//  console.log("Listening on port " + listener.address().port);
+//});
 
-
-
-
-var listener = app.listen(8080, function () {
-  console.log("Listening on port " + listener.address().port);
+//console.log statement in a setTimeout function with a delay of 0 to ensure it runs asynchronously
+//console.log statement in a setTimeout function with a delay of 0 to ensure it runs asynchronously
+var server = app.listen(8080, function () {
+  setTimeout(function () {
+    console.log("Listening on port " + server.address().port);
+  }, 0);
 });
+
+module.exports = { app, server };

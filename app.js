@@ -15,6 +15,7 @@ var registerRouter = require("./routes/signup");
 var logoutRouter = require("./routes/signout");
 var loginRouter = require("./routes/signin");
 var newsRouter = require("./routes/news");
+var category = require("./routes/category");
 
 var app = express();
 
@@ -62,6 +63,7 @@ app.use("/signup", registerRouter);
 app.use("/signout", logoutRouter);
 app.use("/signin", loginRouter);
 app.use("/news", newsRouter);
+app.use("/category",category);
 
 //var listener = app.listen(8080, function () {
 //  console.log("Listening on port " + listener.address().port);
